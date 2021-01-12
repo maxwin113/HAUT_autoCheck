@@ -134,14 +134,8 @@ def checkIn(userInfo,token):
 def check(ownPhone,userInfo,token):
     sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
     #获取datajson
-    post_json = {
-            "businessType": "epmpics",
-            "jsonData": {
-            "templateid": "pneumonia",
-            "token": token
-        },
-            "method": "getUpDataInfoDetail"
-    }      
+    post_json = {"businessType":"epmpics","method":"submitUpInfo","jsonData":{"deptStr":{"deptid":72431,"text":"信息科学与工程学院-物联网工程-物联网1904"},"areaStr":"{\"streetNumber\":\"\",\"street\":\"杨绍线\",\"district\":\"越城区\",\"city\":\"绍兴市\",\"province\":\"浙江省\",\"town\":\"\",\"pois\":\"翡翠园\",\"lng\":120.55736199999681,\"lat\":29.975649946409657,\"address\":\"越城区杨绍线翡翠园\",\"text\":\"浙江省-绍兴市\",\"code\":\"\"}","reportdate":1610421919299,"customerid":"43","deptid":72431,"source":"app","templateid":"pneumonia","stuNo":"201916070401","username":"吴涛","phonenum":"15957500977","userid":"14528508","updatainfo":[{"propertyname":"isGoWarningAdress","value":"男"},{"propertyname":"jtdz","value":"浙江绍兴柯桥区"},{"propertyname":"personNO","value":"330602200011035515"},{"propertyname":"langtineadress","value":"浙江省绍兴市万达中心名宅"},{"propertyname":"ownPhone","value":"15957500977"},{"propertyname":"emergencyContact","value":"13857500076"},{"propertyname":"tradeNum","value":"A s401"},{"propertyname":"temperature","value":"36.4"},{"propertyname":"symptom","value":"均无"},{"propertyname":"isContactpatient","value":"均无"},{"propertyname":"istouchcb","value":"否"},{"propertyname":"isTransitProvince","value":"否"},{"propertyname":"isTouch","value":"否"},{"propertyname":"backadress","value":""},{"propertyname":"isContactFriendIn14","value":"否"},{"propertyname":"sxaddress","value":""},{"propertyname":"medicalObservation","value":"否"},{"propertyname":"sxss","value":""},{"propertyname":"isConfirmed","value":"否"},{"propertyname":"assistRemark","value":""},{"propertyname":"gyfh","value":"否"},{"propertyname":"FamilyIsolate","value":""},{"propertyname":"ishborwh","value":"否"},{"propertyname":"IsHospitaltxt","value":""},{"propertyname":"fhhb","value":"否"},{"propertyname":"isname","value":""},{"propertyname":"other1","value":""},{"propertyname":"isFFHasSymptom","value":"是"}],"gpsType":1,"token":"72d82ef4-3f54-4561-90f9-876f1b43ab4c"}}
+
     response = requests.post(sign_url, json=post_json).json()
     data = json.loads(response['data'])
     info_dict = {
